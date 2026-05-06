@@ -21,7 +21,7 @@ const Project = (props: ProjectProps) => {
           onClick={() => setIsProjectDetailsHidden(false)}
           className="flex items-center gap-1 cursor-pointer hover-animation"
         >
-          Read More
+          See More
           <BsArrowRight />
         </button>
       </div>

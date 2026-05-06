@@ -21,7 +21,7 @@ const HeroLeft = () => {
         Building
       </motion.h1>
       <motion.h1
-        className="text-4xl md:text-5xl font-bold flex flex-row items-start xl:items-center gap-3 text-hero-text"
+        className="text-4xl md:text-5xl font-bold flex flex-row items-center gap-3 text-hero-text"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.8 }}
@@ -29,7 +29,7 @@ const HeroLeft = () => {
         <span className="hidden lg:block">Building</span>
         <RotatingText
           texts={['Responsive', 'Secure', 'Scalable']}
-          mainClassName="px-2 sm:px-2 md:px-3 bg-custom-secondary text-hero-bg overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+          mainClassName="px-2 sm:px-2 md:px-3 bg-white/30 text-hero-bg overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
           staggerFrom={'last'}
           initial={{ y: '100%' }}
           animate={{ y: 0 }}
@@ -49,7 +49,7 @@ const HeroLeft = () => {
         Web Applicaitons.
       </motion.h1>
       <motion.p
-        className="text-sm lg:text-lg py-6 max-w-xl text-custom-secondary"
+        className="text-sm lg:text-lg py-6 max-w-xl text-neutral-300"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2 }}
@@ -57,14 +57,16 @@ const HeroLeft = () => {
         Full-stack developer. MERN specialist. Lifelong learner.{' '}
       </motion.p>
 
-      <motion.button
-        className="btn bg-custom-primary text-hero-btn-text max-w-36 rounded-lg"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.4 }}
-      >
-        Get In Touch
-      </motion.button>
+      <a href="#contact-section">
+        <motion.button
+          className="btn bg-custom-primary text-hero-btn-text max-w-36 rounded-lg border-none"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.4 }}
+        >
+          Get In Touch
+        </motion.button>
+      </a>
     </div>
   )
 }

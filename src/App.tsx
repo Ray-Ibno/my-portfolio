@@ -1,8 +1,12 @@
 import Navbar from './components/Navbar'
 import About from './sections/About/About'
-import Footer from './sections/Footer'
+import Contact from './sections/Contact/Contact'
+import Footer from './components/Footer'
 import Hero from './sections/Hero/Hero'
 import Projects from './sections/Projects/Projects'
+
+import { Toaster } from './components/ui/sonner'
+import Education from './sections/Education/Education'
 
 function App() {
   return (
@@ -10,10 +14,13 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Projects />
         <About />
+        <Education />
+        <Projects />
+        <Contact />
       </main>
       <Footer />
+      <Toaster />
     </div>
   )
 }

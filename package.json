@@ -11,18 +11,25 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
+    "@emailjs/browser": "^4.4.1",
     "@fontsource-variable/geist": "^5.2.8",
     "@tailwindcss/vite": "^4.2.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "daisyui": "^5.5.19",
+    "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",
     "motion": "^12.38.0",
+    "next-themes": "^0.4.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.13.2",
     "shadcn": "^4.2.0",
+    "sonner": "^2.0.7",
+    "svg-dotted-map": "^2.0.1",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2",
     "tw-animate-css": "^1.4.0"
@@ -40,5 +47,10 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.57.0",
     "vite": "^8.0.1"
-  }
+  },
+  "description": "![Project Preview](./screenshots/preview.png) ![Project Preview Mobile](./screenshots//preview_mobile.png)",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

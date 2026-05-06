@@ -39,13 +39,23 @@ const ProjectDetails = (props: ProjectDetailsProps) => {
                   />
                 ))}
               </div>
-              <a
-                href={props.href}
-                target="_blank"
-                className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation"
-              >
-                View Project <BiUpArrow />
-              </a>
+              <div className="flex flex-col md:flex-row items-end md:items-start md:gap-6">
+                <a
+                  href={props.href.github}
+                  target="_blank"
+                  className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation"
+                >
+                  View Code <BiUpArrow />
+                </a>
+
+                <a
+                  href={props.href.site}
+                  target="_blank"
+                  className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation"
+                >
+                  View Project <BiUpArrow />
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>

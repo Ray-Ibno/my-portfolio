@@ -1,14 +1,39 @@
-import { motion } from 'motion/react'
+import { motion, useMotionValue, useSpring } from 'motion/react'
 
 const HeroRight = () => {
+  const x = useMotionValue(0)
+
+  const springX = useSpring(x, { stiffness: 50, damping: 5 })
+
   return (
-    <motion.img
-      src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-      className="max-w-sm rounded-lg shadow-2xl hidden lg:block"
-      initial={{ opacity: 0, x: 50 }}
+    <motion.div
+      initial={{ opacity: 0, x: 150 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.8 }}
-    />
+      className="relative"
+    >
+      <motion.img
+        src="/assets/spaceship.png"
+        style={{ x }}
+        className="max-w-sm rounded-lg"
+        animate={{
+          rotate: [3, -3],
+          x: [-100, 100],
+        }}
+        transition={{
+          delay: 0.8,
+          duration: 2.5,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      />
+      <motion.img
+        src="/assets/spaceshiplight.png"
+        style={{ x: springX }}
+        className="absolute top-43"
+      />
+    </motion.div>
   )
 }
 export default HeroRight

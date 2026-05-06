@@ -22,10 +22,7 @@
 
 ## What I learned
 
-### To use ui and animation libraries
-
-### Learned about social previews and how to use tags for SEO optimization
-
-### First time using vercel
-
-### Used tinypng to optimize images used in this website
+- To use ui and animation libraries
+- Learned about social previews and how to use tags for SEO optimization
+- First time using vercel
+- Used tinypng to optimize images used in this website

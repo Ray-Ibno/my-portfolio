@@ -1,19 +1,18 @@
 # My Portfolio
 
-### showcases projects I made
+#### showcases projects I made
 
 ## LINK: [my portfolio]()
 
 ## Screenshots
 
-![Project Preview](./screenshots/preview.png)
-![Project Preview Mobile](./screenshots//preview_mobile.png)
+![Project Preview](./screenshots/preview.png) ![Project Preview Mobile](./screenshots//preview_mobile.png)
 
 ## Tech Stack
 
 ### vite+react, tailwind css, and Motion
 
-#### I chosed vite for its automated and optimized production build
+#### I chose vite for its automated and optimized production build
 
 ## Key Features
 

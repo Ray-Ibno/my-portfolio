@@ -1,26 +1,15 @@
-import React, { MouseEvent, useEffect, useState } from "react"
-
-import { cn } from "@/lib/utils"
+import React, { type MouseEvent, useEffect, useState } from 'react'
+import { cn } from '../../lib/utils'
 
 interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rippleColor?: string
   duration?: string
 }
 
-export const RippleButton = React.forwardRef<
-  HTMLButtonElement,
-  RippleButtonProps
->(
+export const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
   (
-    {
-      className,
-      children,
-      rippleColor = "#ffffff",
-      duration = "600ms",
-      onClick,
-      ...props
-    },
-    ref
+    { className, children, rippleColor = '#ffffff', duration = '600ms', onClick, ...props },
+    ref,
   ) => {
     const [buttonRipples, setButtonRipples] = useState<
       Array<{ x: number; y: number; size: number; key: number }>
@@ -49,7 +38,7 @@ export const RippleButton = React.forwardRef<
         const lastRipple = buttonRipples[buttonRipples.length - 1]
         timeout = setTimeout(() => {
           setButtonRipples((prevRipples) =>
-            prevRipples.filter((ripple) => ripple.key !== lastRipple.key)
+            prevRipples.filter((ripple) => ripple.key !== lastRipple.key),
           )
         }, parseInt(duration))
       }
@@ -64,8 +53,8 @@ export const RippleButton = React.forwardRef<
     return (
       <button
         className={cn(
-          "bg-background text-primary relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 px-4 py-2 text-center",
-          className
+          'bg-background text-primary relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 px-4 py-2 text-center',
+          className,
         )}
         onClick={handleClick}
         ref={ref}
@@ -85,7 +74,7 @@ export const RippleButton = React.forwardRef<
                   left: `${ripple.x}px`,
                   backgroundColor: rippleColor,
                   transform: `scale(0)`,
-                  "--duration": duration,
+                  '--duration': duration,
                 } as React.CSSProperties
               }
             />
@@ -93,7 +82,7 @@ export const RippleButton = React.forwardRef<
         </span>
       </button>
     )
-  }
+  },
 )
 
-RippleButton.displayName = "RippleButton"
+RippleButton.displayName = 'RippleButton'

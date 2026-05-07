@@ -1,7 +1,6 @@
-import * as React from "react"
-import { createMap } from "svg-dotted-map"
-
-import { cn } from "@/lib/utils"
+import * as React from 'react'
+import { createMap } from 'svg-dotted-map'
+import { cn } from '../../lib/utils'
 
 export interface Marker {
   lat: number
@@ -11,14 +10,12 @@ export interface Marker {
 }
 
 /** addMarkers returns markers with lat/lng removed; only x, y and other props (e.g. size) remain */
-type MapMarker<M extends Marker> = Omit<M, "lat" | "lng"> & {
+type MapMarker<M extends Marker> = Omit<M, 'lat' | 'lng'> & {
   x: number
   y: number
 }
 
-export interface DottedMapProps<
-  M extends Marker = Marker,
-> extends React.SVGProps<SVGSVGElement> {
+export interface DottedMapProps<M extends Marker = Marker> extends React.SVGProps<SVGSVGElement> {
   width?: number
   height?: number
   mapSamples?: number
@@ -43,8 +40,8 @@ export function DottedMap<M extends Marker = Marker>({
   height = 75,
   mapSamples = 5000,
   markers = [],
-  dotColor = "currentColor",
-  markerColor = "#FF6900",
+  dotColor = 'currentColor',
+  markerColor = '#FF6900',
   dotRadius = 0.2,
   stagger = true,
   pulse = false,
@@ -61,35 +58,35 @@ export function DottedMap<M extends Marker = Marker>({
   const processedMarkers = addMarkers(markers)
 
   // Compute stagger helpers in a single, simple pass
-  const { xStep, yToRowIndex } = React.useMemo(() => {
-    const sorted = [...points].sort((a, b) => a.y - b.y || a.x - b.x)
-    const rowMap = new Map<number, number>()
-    let step = 0
-    let prevY = Number.NaN
-    let prevXInRow = Number.NaN
 
-    for (const p of sorted) {
-      if (p.y !== prevY) {
-        // new row
-        prevY = p.y
-        prevXInRow = Number.NaN
-        if (!rowMap.has(p.y)) rowMap.set(p.y, rowMap.size)
-      }
-      if (!Number.isNaN(prevXInRow)) {
-        const delta = p.x - prevXInRow
-        if (delta > 0) step = step === 0 ? delta : Math.min(step, delta)
-      }
-      prevXInRow = p.x
+  const sorted = [...points].sort((a, b) => a.y - b.y || a.x - b.x)
+  const rowMap = new Map<number, number>()
+  let step = 0
+  let prevY = Number.NaN
+  let prevXInRow = Number.NaN
+
+  for (const p of sorted) {
+    if (p.y !== prevY) {
+      // new row
+      prevY = p.y
+      prevXInRow = Number.NaN
+      if (!rowMap.has(p.y)) rowMap.set(p.y, rowMap.size)
     }
+    if (!Number.isNaN(prevXInRow)) {
+      const delta = p.x - prevXInRow
+      if (delta > 0) step = step === 0 ? delta : Math.min(step, delta)
+    }
+    prevXInRow = p.x
+  }
 
-    return { xStep: step || 1, yToRowIndex: rowMap }
-  }, [points])
+  const xStep = step || 1
+  const yToRowIndex = rowMap
 
   return (
     <svg
       viewBox={`0 0 ${width} ${height}`}
-      className={cn("text-gray-500 dark:text-gray-500", className)}
-      style={{ width: "100%", height: "100%", ...style }}
+      className={cn('text-gray-500 dark:text-gray-500', className)}
+      style={{ width: '100%', height: '100%', ...style }}
       {...svgProps}
     >
       {points.map((point, index) => {
@@ -113,9 +110,7 @@ export function DottedMap<M extends Marker = Marker>({
         const x = marker.x + offsetX
         const y = marker.y
         const r = marker.size ?? dotRadius
-        const shouldPulse = pulse
-          ? marker.pulse !== false
-          : marker.pulse === true
+        const shouldPulse = pulse ? marker.pulse !== false : marker.pulse === true
         const pulseTo = r * 2.8
 
         return (

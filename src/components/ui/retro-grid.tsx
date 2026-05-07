@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from "react"
-import type { CSSProperties, HTMLAttributes } from "react"
-
-import { cn } from "@/lib/utils"
+import { useEffect, useRef, useState } from 'react'
+import type { CSSProperties, HTMLAttributes } from 'react'
+import { cn } from '../../lib/utils'
 
 const ANIMATION_DURATION_SECONDS = 15
 const GRID_HEIGHT_RATIO = 3
@@ -15,7 +14,7 @@ const MAX_ANGLE = 89
 const MAX_DEVICE_PIXEL_RATIO = 2
 const MIN_ANGLE = 1
 const PERSPECTIVE_PX = 200
-const FALLBACK_ANIMATION_NAME = "retro-grid-fallback-scroll"
+const FALLBACK_ANIMATION_NAME = 'retro-grid-fallback-scroll'
 const FALLBACK_STYLES = `
 @keyframes ${FALLBACK_ANIMATION_NAME} {
   from {
@@ -318,11 +317,7 @@ function createShader(gl: WebGLRenderingContext, type: number, source: string) {
 
 function createProgram(gl: WebGLRenderingContext) {
   const vertexShader = createShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER_SOURCE)
-  const fragmentShader = createShader(
-    gl,
-    gl.FRAGMENT_SHADER,
-    FRAGMENT_SHADER_SOURCE
-  )
+  const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER_SOURCE)
 
   if (!vertexShader || !fragmentShader) {
     return null
@@ -350,21 +345,15 @@ function createProgram(gl: WebGLRenderingContext) {
   return null
 }
 
-function getProgramInfo(
-  gl: WebGLRenderingContext,
-  program: WebGLProgram
-): ProgramInfo | null {
-  const attributeLocation = gl.getAttribLocation(program, "a_position")
-  const angle = gl.getUniformLocation(program, "u_angle")
-  const cellSize = gl.getUniformLocation(program, "u_cell_size")
-  const containerSize = gl.getUniformLocation(program, "u_container_size")
-  const devicePixelRatio = gl.getUniformLocation(
-    program,
-    "u_device_pixel_ratio"
-  )
-  const lineColor = gl.getUniformLocation(program, "u_line_color")
-  const time = gl.getUniformLocation(program, "u_time")
-  const viewportSize = gl.getUniformLocation(program, "u_viewport_size")
+function getProgramInfo(gl: WebGLRenderingContext, program: WebGLProgram): ProgramInfo | null {
+  const attributeLocation = gl.getAttribLocation(program, 'a_position')
+  const angle = gl.getUniformLocation(program, 'u_angle')
+  const cellSize = gl.getUniformLocation(program, 'u_cell_size')
+  const containerSize = gl.getUniformLocation(program, 'u_container_size')
+  const devicePixelRatio = gl.getUniformLocation(program, 'u_device_pixel_ratio')
+  const lineColor = gl.getUniformLocation(program, 'u_line_color')
+  const time = gl.getUniformLocation(program, 'u_time')
+  const viewportSize = gl.getUniformLocation(program, 'u_viewport_size')
 
   if (
     attributeLocation < 0 ||
@@ -397,11 +386,11 @@ function getProgramInfo(
 function isDarkMode(colorScheme: MediaQueryList) {
   const root = document.documentElement
 
-  if (root.classList.contains("dark")) {
+  if (root.classList.contains('dark')) {
     return true
   }
 
-  if (root.classList.contains("light")) {
+  if (root.classList.contains('light')) {
     return false
   }
 
@@ -413,10 +402,10 @@ function getColorResolveContext() {
     return colorResolveContext
   }
 
-  const canvas = document.createElement("canvas")
+  const canvas = document.createElement('canvas')
   canvas.width = 1
   canvas.height = 1
-  colorResolveContext = canvas.getContext("2d", {
+  colorResolveContext = canvas.getContext('2d', {
     willReadFrequently: true,
   })
 
@@ -424,11 +413,11 @@ function getColorResolveContext() {
 }
 
 function resolveLineColor(color: string, element: HTMLElement) {
-  const resolver = document.createElement("span")
+  const resolver = document.createElement('span')
   resolver.style.color = color
-  resolver.style.opacity = "0"
-  resolver.style.pointerEvents = "none"
-  resolver.style.position = "absolute"
+  resolver.style.opacity = '0'
+  resolver.style.pointerEvents = 'none'
+  resolver.style.position = 'absolute'
   element.appendChild(resolver)
 
   const resolvedColor = getComputedStyle(resolver).color
@@ -444,24 +433,16 @@ function resolveLineColor(color: string, element: HTMLElement) {
   context.fillRect(0, 0, 1, 1)
   const pixel = context.getImageData(0, 0, 1, 1).data
 
-  return new Float32Array([
-    pixel[0] / 255,
-    pixel[1] / 255,
-    pixel[2] / 255,
-    pixel[3] / 255,
-  ])
+  return new Float32Array([pixel[0] / 255, pixel[1] / 255, pixel[2] / 255, pixel[3] / 255])
 }
 
-function createFallbackGridStyle(
-  cellSize: number,
-  lineColor: string
-): CSSProperties {
+function createFallbackGridStyle(cellSize: number, lineColor: string): CSSProperties {
   return {
     animation: `${FALLBACK_ANIMATION_NAME} ${ANIMATION_DURATION_SECONDS}s linear infinite`,
     backgroundImage: `linear-gradient(to right, ${lineColor} 1px, transparent 0), linear-gradient(to bottom, ${lineColor} 1px, transparent 0)`,
-    backgroundRepeat: "repeat",
+    backgroundRepeat: 'repeat',
     backgroundSize: `${cellSize}px ${cellSize}px`,
-    transform: "translateY(-50%)",
+    transform: 'translateY(-50%)',
   }
 }
 
@@ -470,8 +451,8 @@ export function RetroGrid({
   angle = 65,
   cellSize = 60,
   opacity = 0.5,
-  lightLineColor = "gray",
-  darkLineColor = "gray",
+  lightLineColor = 'gray',
+  darkLineColor = 'gray',
   style,
   ...props
 }: RetroGridProps) {
@@ -500,8 +481,8 @@ export function RetroGrid({
       return
     }
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
-    const colorScheme = window.matchMedia("(prefers-color-scheme: dark)")
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)')
 
     let animationFrameId: number | null = null
     let currentWidth = 0
@@ -515,13 +496,13 @@ export function RetroGrid({
     let programInfo: ProgramInfo | null = null
 
     const getContext = () => {
-      const nextGl = canvas.getContext("webgl", {
+      const nextGl = canvas.getContext('webgl', {
         alpha: true,
         antialias: true,
         premultipliedAlpha: true,
       })
 
-      if (!nextGl || !nextGl.getExtension("OES_standard_derivatives")) {
+      if (!nextGl || !nextGl.getExtension('OES_standard_derivatives')) {
         return null
       }
 
@@ -583,7 +564,7 @@ export function RetroGrid({
       nextGl.bufferData(
         nextGl.ARRAY_BUFFER,
         new Float32Array([-1, -1, 3, -1, -1, 3]),
-        nextGl.STATIC_DRAW
+        nextGl.STATIC_DRAW,
       )
 
       positionBuffer = nextPositionBuffer
@@ -607,10 +588,7 @@ export function RetroGrid({
         return
       }
 
-      currentDevicePixelRatio = Math.min(
-        window.devicePixelRatio || 1,
-        MAX_DEVICE_PIXEL_RATIO
-      )
+      currentDevicePixelRatio = Math.min(window.devicePixelRatio || 1, MAX_DEVICE_PIXEL_RATIO)
 
       canvas.width = Math.floor(currentWidth * currentDevicePixelRatio)
       canvas.height = Math.floor(currentHeight * currentDevicePixelRatio)
@@ -634,43 +612,16 @@ export function RetroGrid({
       gl.useProgram(programInfo.program)
       gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
       gl.enableVertexAttribArray(programInfo.attributeLocation)
-      gl.vertexAttribPointer(
-        programInfo.attributeLocation,
-        2,
-        gl.FLOAT,
-        false,
-        0,
-        0
-      )
+      gl.vertexAttribPointer(programInfo.attributeLocation, 2, gl.FLOAT, false, 0, 0)
       gl.clearColor(0, 0, 0, 0)
       gl.clear(gl.COLOR_BUFFER_BIT)
-      gl.uniform1f(
-        programInfo.uniforms.angle,
-        clamp(angleRef.current, MIN_ANGLE, MAX_ANGLE)
-      )
-      gl.uniform1f(
-        programInfo.uniforms.cellSize,
-        Math.max(cellSizeRef.current, 1)
-      )
-      gl.uniform2f(
-        programInfo.uniforms.containerSize,
-        currentWidth,
-        currentHeight
-      )
-      gl.uniform1f(
-        programInfo.uniforms.devicePixelRatio,
-        currentDevicePixelRatio
-      )
+      gl.uniform1f(programInfo.uniforms.angle, clamp(angleRef.current, MIN_ANGLE, MAX_ANGLE))
+      gl.uniform1f(programInfo.uniforms.cellSize, Math.max(cellSizeRef.current, 1))
+      gl.uniform2f(programInfo.uniforms.containerSize, currentWidth, currentHeight)
+      gl.uniform1f(programInfo.uniforms.devicePixelRatio, currentDevicePixelRatio)
       gl.uniform4fv(programInfo.uniforms.lineColor, lineColor)
-      gl.uniform1f(
-        programInfo.uniforms.time,
-        reducedMotion.matches ? 0 : timestamp / 1000
-      )
-      gl.uniform2f(
-        programInfo.uniforms.viewportSize,
-        window.innerWidth,
-        window.innerHeight
-      )
+      gl.uniform1f(programInfo.uniforms.time, reducedMotion.matches ? 0 : timestamp / 1000)
+      gl.uniform2f(programInfo.uniforms.viewportSize, window.innerWidth, window.innerHeight)
       gl.drawArrays(gl.TRIANGLES, 0, 3)
     }
 
@@ -755,7 +706,7 @@ export function RetroGrid({
       syncScene()
     })
     themeObserver.observe(document.documentElement, {
-      attributeFilter: ["class"],
+      attributeFilter: ['class'],
       attributes: true,
     })
 
@@ -780,11 +731,11 @@ export function RetroGrid({
       syncScene()
     }
 
-    reducedMotion.addEventListener("change", handleMotionChange)
-    colorScheme.addEventListener("change", handleColorSchemeChange)
-    window.addEventListener("resize", handleWindowResize)
-    canvas.addEventListener("webglcontextlost", handleContextLost)
-    canvas.addEventListener("webglcontextrestored", handleContextRestored)
+    reducedMotion.addEventListener('change', handleMotionChange)
+    colorScheme.addEventListener('change', handleColorSchemeChange)
+    window.addEventListener('resize', handleWindowResize)
+    canvas.addEventListener('webglcontextlost', handleContextLost)
+    canvas.addEventListener('webglcontextrestored', handleContextRestored)
 
     syncScene()
 
@@ -793,11 +744,11 @@ export function RetroGrid({
       resizeObserver.disconnect()
       intersectionObserver.disconnect()
       themeObserver.disconnect()
-      reducedMotion.removeEventListener("change", handleMotionChange)
-      colorScheme.removeEventListener("change", handleColorSchemeChange)
-      window.removeEventListener("resize", handleWindowResize)
-      canvas.removeEventListener("webglcontextlost", handleContextLost)
-      canvas.removeEventListener("webglcontextrestored", handleContextRestored)
+      reducedMotion.removeEventListener('change', handleMotionChange)
+      colorScheme.removeEventListener('change', handleColorSchemeChange)
+      window.removeEventListener('resize', handleWindowResize)
+      canvas.removeEventListener('webglcontextlost', handleContextLost)
+      canvas.removeEventListener('webglcontextrestored', handleContextRestored)
       syncSceneRef.current = null
       releasePipeline(!isContextLost)
     }
@@ -815,22 +766,13 @@ export function RetroGrid({
   const fallbackRotationStyles = {
     transform: `rotateX(${normalizedAngle}deg)`,
   } as CSSProperties
-  const lightFallbackGridStyles = createFallbackGridStyle(
-    normalizedCellSize,
-    lightLineColor
-  )
-  const darkFallbackGridStyles = createFallbackGridStyle(
-    normalizedCellSize,
-    darkLineColor
-  )
+  const lightFallbackGridStyles = createFallbackGridStyle(normalizedCellSize, lightLineColor)
+  const darkFallbackGridStyles = createFallbackGridStyle(normalizedCellSize, darkLineColor)
 
   return (
     <div
       ref={containerRef}
-      className={cn(
-        "pointer-events-none absolute size-full overflow-hidden",
-        className
-      )}
+      className={cn('pointer-events-none absolute size-full overflow-hidden', className)}
       style={gridStyles}
       {...props}
     >
@@ -853,10 +795,7 @@ export function RetroGrid({
       ) : null}
       <canvas
         ref={canvasRef}
-        className={cn(
-          "absolute inset-0 size-full",
-          isWebGlReady ? "opacity-100" : "opacity-0"
-        )}
+        className={cn('absolute inset-0 size-full', isWebGlReady ? 'opacity-100' : 'opacity-0')}
       />
       <div className="absolute inset-0 bg-linear-to-t from-white to-transparent to-90% dark:from-black" />
     </div>

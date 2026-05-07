@@ -36,6 +36,7 @@ function SelectTrigger({
 }) {
   return (
     <SelectPrimitive.Trigger
+      name="select button"
       data-slot="select-trigger"
       data-size={size}
       className={cn(

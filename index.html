@@ -32,6 +32,31 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preload" as="image" href="/assets/hero-bg.jpg" fetchpriority="high" />
+
+    <script>
+      // Defer CSS loading
+      const loadDeferredStyles = function () {
+        const addStylesNode = document.getElementById('deferred-styles')
+        const replacement = document.createElement('div')
+        replacement.innerHTML = addStylesNode.textContent
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode)
+      }
+      const raf =
+        window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame
+      if (raf)
+        raf(function () {
+          window.setTimeout(loadDeferredStyles, 0)
+        })
+      else window.addEventListener('load', loadDeferredStyles)
+    </script>
+    <!-- Use <noscript> to load it if JS is disabled -->
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="/src/index.css" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

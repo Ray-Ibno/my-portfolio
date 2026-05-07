@@ -14,6 +14,9 @@ const HeroRight = () => {
     >
       <motion.img
         src="/assets/spaceship.png"
+        alt="Spaceship"
+        width={300}
+        height={300}
         style={{ x }}
         className="max-w-sm rounded-lg"
         animate={{
@@ -30,8 +33,11 @@ const HeroRight = () => {
       />
       <motion.img
         src="/assets/spaceshiplight.png"
+        alt="Spaceship light"
+        width={300}
+        height={300}
         style={{ x: springX }}
-        className="absolute top-43"
+        className="absolute top-34"
       />
     </motion.div>
   )

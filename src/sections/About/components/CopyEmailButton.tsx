@@ -25,6 +25,7 @@ const CopyEmailButton = ({ callback }: CopyEmailButtonProps) => {
 
   return (
     <RippleButton
+      name="copy email button"
       rippleColor="green"
       onClick={copyToClipboard}
       className={`relative px-1 py-4 text-sm text-center rounded-full font-extralight ${copied ? 'bg-green-500' : 'bg-black'} w-48 cursor-pointer overflow-hidden text-white border-none`}

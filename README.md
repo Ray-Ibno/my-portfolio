@@ -2,7 +2,7 @@
 
 #### showcases projects I made
 
-## LINK: [my portfolio]()
+## LINK: [my portfolio](https://my-portfolio-8vn4.vercel.app/)
 
 ## Screenshots
 

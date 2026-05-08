@@ -13,6 +13,7 @@ const HeroRight = () => {
       className="relative"
     >
       <motion.img
+        fetchPriority="high"
         src="/assets/spaceship.png"
         alt="Spaceship"
         width={300}
@@ -32,6 +33,7 @@ const HeroRight = () => {
         }}
       />
       <motion.img
+        fetchPriority="high"
         src="/assets/spaceshiplight.png"
         alt="Spaceship light"
         width={300}

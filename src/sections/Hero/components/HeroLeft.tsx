@@ -3,33 +3,22 @@ import RotatingText from '../../../components/RotatingText'
 
 const HeroLeft = () => {
   return (
-    <div className="w-full flex items-center lg:items-start flex-col gap-3">
-      <motion.h1
-        className="text-4xl md:text-5xl font-bold text-hero-text"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.6 }}
-      >
+    <motion.div
+      className="w-full flex items-center lg:items-start flex-col gap-3"
+      initial={{ opacity: 0.1, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+    >
+      <h1 className="font-sans text-4xl md:text-5xl font-bold text-[#f0f0f0])">
         Software Engineer
-      </motion.h1>
-      <motion.h1
-        className="text-4xl md:text-5xl font-bold block lg:hidden text-hero-text"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.8 }}
-      >
+      </h1>
+      <h1 className="font-sans text-4xl md:text-5xl font-bold block lg:hidden text-hero-text">
         Building
-      </motion.h1>
-      <motion.h1
-        className="text-4xl md:text-5xl font-bold flex flex-row items-center gap-3 text-hero-text"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.8 }}
-      >
+      </h1>
+      <h1 className="font-sans text-4xl md:text-5xl font-bold flex flex-row items-center gap-3 text-hero-text">
         <span className="hidden lg:block">Building</span>
         <RotatingText
           texts={['Responsive', 'Secure', 'Scalable']}
-          mainClassName="px-2 sm:px-2 md:px-3 bg-white/30 text-hero-bg overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+          mainClassName="font-sans px-2 sm:px-2 md:px-3 bg-white/30 text-hero-bg overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
           staggerFrom={'last'}
           initial={{ y: '100%' }}
           animate={{ y: 0 }}
@@ -39,35 +28,18 @@ const HeroLeft = () => {
           transition={{ type: 'spring', damping: 30, stiffness: 400 }}
           rotationInterval={2000}
         />
-      </motion.h1>
-      <motion.h1
-        className="text-4xl md:text-5xl font-bold text-hero-text"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1 }}
-      >
-        Web Applicaitons.
-      </motion.h1>
-      <motion.p
-        className="text-sm lg:text-lg py-6 max-w-xl text-neutral-300"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.2 }}
-      >
+      </h1>
+      <h1 className="font-sans text-4xl md:text-5xl font-bold text-hero-text">Web Applicaitons.</h1>
+      <p className="text-sm lg:text-lg py-6 max-w-xl text-neutral-300">
         Full-stack developer. MERN specialist. Lifelong learner.{' '}
-      </motion.p>
+      </p>
 
       <a href="#contact-section">
-        <motion.button
-          className="btn bg-custom-primary text-hero-btn-text max-w-36 rounded-lg border-none"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.4 }}
-        >
+        <button className="btn bg-custom-primary text-hero-btn-text max-w-36 rounded-lg border-none">
           Get In Touch
-        </motion.button>
+        </button>
       </a>
-    </div>
+    </motion.div>
   )
 }
 export default HeroLeft

@@ -5,7 +5,7 @@ const InfoCard = ({ educationInfo }: InfoCardProps) => {
     <div className="flex flex-col mb-5 pl-5">
       <div>
         <h1 className="mb-px font-bold text-xl">{educationInfo.title}</h1>
-        <p className="text-xs text-neutral-500">{educationInfo.year}</p>
+        <p className="text-xs text-neutral-400">{educationInfo.year}</p>
         <p className="mt-3 font-extralight text-neutral-300">{educationInfo.description}</p>
       </div>
       <div className="flex flex-col mt-4">

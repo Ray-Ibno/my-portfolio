@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="flex gap-2">
         <p>contact email: alradennibno@gmail.com</p>
         <p>|</p>
-        <a href="#home-section" className="text-neutral-400 underline">
+        <a aria-label="go back to top" href="#home-section" className="text-neutral-400 underline">
           <p>back to top</p>
         </a>
       </div>

@@ -41,6 +41,7 @@ const ProjectDetails = (props: ProjectDetailsProps) => {
               </div>
               <div className="flex flex-col md:flex-row items-end md:items-start md:gap-6">
                 <a
+                  aria-label="View Code"
                   href={props.href.github}
                   target="_blank"
                   className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation"
@@ -49,6 +50,7 @@ const ProjectDetails = (props: ProjectDetailsProps) => {
                 </a>
 
                 <a
+                  aria-label="View Project"
                   href={props.href.site}
                   target="_blank"
                   className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation"

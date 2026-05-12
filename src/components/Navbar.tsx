@@ -1,6 +1,5 @@
 import { NavList } from '../constants'
 import LetsConnectDialog from './LetsConnectDialog'
-import { ScrollProgress } from './ui/scroll-progress'
 
 const Navbar = () => {
   return (
@@ -8,7 +7,12 @@ const Navbar = () => {
       <header className="navbar bg-white/10 backdrop-blur-sm shadow-sm fixed z-100 px-5 lg:px-15">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden"
+              aria-label="hamburger button"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -31,7 +35,9 @@ const Navbar = () => {
             >
               {NavList.map((list) => (
                 <li key={list}>
-                  <a href={`#${list.toLowerCase()}-section`}>{list}</a>
+                  <a aria-label={`${list} section`} href={`#${list.toLowerCase()}-section`}>
+                    {list}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -44,7 +50,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             {NavList.map((list) => (
               <li key={list}>
-                <a href={`#${list.toLowerCase()}-section`}>{list}</a>
+                <a aria-label={`${list} section`} href={`#${list.toLowerCase()}-section`}>
+                  {list}
+                </a>
               </li>
             ))}
           </ul>
@@ -52,7 +60,6 @@ const Navbar = () => {
         <div className="navbar-end">
           <LetsConnectDialog />
         </div>
-        <ScrollProgress />
       </header>
     </>
   )

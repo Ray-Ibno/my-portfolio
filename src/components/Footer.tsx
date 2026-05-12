@@ -7,7 +7,7 @@ const Footer = () => {
 
       <div className="flex gap-3">
         {socials.map((social, index) => (
-          <a href={social.href} target="_blank" key={index}>
+          <a aria-label={social.name} href={social.href} target="_blank" key={index}>
             <social.icon size={24} />
           </a>
         ))}

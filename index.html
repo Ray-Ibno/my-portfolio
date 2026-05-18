@@ -38,33 +38,20 @@
     <meta property="og:description" content="Building scalabel and maintainable modern web apps." />
     <meta property="og:image" content="https://my-portfolio-8vn4.vercel.app/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="rel"
+      href="/src/index.css"
+      rel="preload"
+      as="style"
+      onload="this.rel = 'stylesheet'"
+    />
+
+    <link rel="preload" href="/src/index.css" as="style" onload="this.rel = 'stylesheet'" />
+    <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // Defer CSS loading
-      const loadDeferredStyles = function () {
-        const addStylesNode = document.getElementById('deferred-styles')
-        const replacement = document.createElement('div')
-        replacement.innerHTML = addStylesNode.textContent
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode)
-      }
-      const raf =
-        window.requestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.msRequestAnimationFrame
-      if (raf)
-        raf(function () {
-          window.setTimeout(loadDeferredStyles, 0)
-        })
-      else window.addEventListener('load', loadDeferredStyles)
-    </script>
-    <!-- Use <noscript> to load it if JS is disabled -->
-    <noscript id="deferred-styles">
-      <link rel="stylesheet" type="text/css" href="/src/index.css" />
-    </noscript>
   </body>
 </html>

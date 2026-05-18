@@ -4,7 +4,7 @@ const Intro = () => {
   return (
     <div className="flex items-end grid-default-color grid-1">
       <img
-        src="assets/coding-bg.jpg"
+        src="assets/coding-bg.webp"
         alt="coding screen image"
         className="absolute scale-[1.75] -right-20 -top-4 md:scale-[5] md:left-5 md:inset-y-10 lg:scale-[3]"
       />

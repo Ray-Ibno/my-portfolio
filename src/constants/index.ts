@@ -31,27 +31,27 @@ export const myProjects = [
       github: 'https://github.com/Ray-Ibno/x-clone',
     },
     logo: '',
-    image: '/assets/projects/x-clone.png',
+    image: '/assets/projects/x-clone.webp',
     tags: [
       {
         id: 1,
         name: 'React',
-        path: '/assets/logos/React.png',
+        path: '/assets/logos/React.webp',
       },
       {
         id: 2,
         name: 'Mongo DB',
-        path: '/assets/logos/MongoDB.png',
+        path: '/assets/logos/MongoDB.webp',
       },
       {
         id: 3,
         name: 'Node.js',
-        path: '/assets/logos/Node.js.png',
+        path: '/assets/logos/Node.js.webp',
       },
       {
         id: 4,
         name: 'Express',
-        path: '/assets/logos/Express.png',
+        path: '/assets/logos/Express.webp',
       },
       {
         id: 5,
@@ -81,27 +81,27 @@ export const myProjects = [
       github: 'https://github.com/Ray-Ibno/netflix-clone',
     },
     logo: '',
-    image: '/assets/projects/netflix-clone.png',
+    image: '/assets/projects/netflix-clone.webp',
     tags: [
       {
         id: 1,
         name: 'React',
-        path: '/assets/logos/React.png',
+        path: '/assets/logos/React.webp',
       },
       {
         id: 2,
         name: 'Mongo DB',
-        path: '/assets/logos/MongoDB.png',
+        path: '/assets/logos/MongoDB.webp',
       },
       {
         id: 3,
         name: 'Node.js',
-        path: '/assets/logos/Node.js.png',
+        path: '/assets/logos/Node.js.webp',
       },
       {
         id: 4,
         name: 'Express',
-        path: '/assets/logos/Express.png',
+        path: '/assets/logos/Express.webp',
       },
       {
         id: 5,
@@ -123,27 +123,27 @@ export const myProjects = [
       github: 'https://github.com/Ray-Ibno/product-manager',
     },
     logo: '',
-    image: '/assets/projects/product-manager.png',
+    image: '/assets/projects/product-manager.webp',
     tags: [
       {
         id: 1,
         name: 'React',
-        path: '/assets/logos/React.png',
+        path: '/assets/logos/React.webp',
       },
       {
         id: 2,
         name: 'Mongo DB',
-        path: '/assets/logos/MongoDB.png',
+        path: '/assets/logos/MongoDB.webp',
       },
       {
         id: 3,
         name: 'Node.js',
-        path: '/assets/logos/Node.js.png',
+        path: '/assets/logos/Node.js.webp',
       },
       {
         id: 4,
         name: 'Express',
-        path: '/assets/logos/Express.png',
+        path: '/assets/logos/Express.webp',
       },
     ],
   },

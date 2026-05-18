@@ -17,12 +17,12 @@ const Orbit = () => {
         <div className="relative flex h-60 w-full flex-col items-center justify-center overflow-hidden">
           <OrbitingCircles iconSize={40}>
             {skills.map((skill, index) => (
-              <Icon key={index} src={`assets/logos/${skill}.png`} />
+              <Icon key={index} src={`assets/logos/${skill}.webp`} />
             ))}
           </OrbitingCircles>
           <OrbitingCircles iconSize={30} radius={100} reverse speed={1.5}>
             {skills.map((skill, index) => (
-              <Icon key={index} src={`assets/logos/${skill}.png`} />
+              <Icon key={index} src={`assets/logos/${skill}.webp`} />
             ))}
           </OrbitingCircles>
         </div>

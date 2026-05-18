@@ -14,7 +14,7 @@ const HeroRight = () => {
     >
       <motion.img
         fetchPriority="high"
-        src="/assets/spaceship.png"
+        src="/assets/spaceship.webp"
         alt="Spaceship"
         width={300}
         height={300}
@@ -34,7 +34,7 @@ const HeroRight = () => {
       />
       <motion.img
         fetchPriority="high"
-        src="/assets/spaceshiplight.png"
+        src="/assets/spaceshiplight.webp"
         alt="Spaceship light"
         width={300}
         height={300}

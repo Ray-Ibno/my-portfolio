@@ -43,7 +43,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a href="#home-section" className="text-xl cursor-pointer w-24">
-            <img src="/assets/logos/site_logo.png" width={100} height={100} alt="Logo" />
+            <img src="/assets/logos/site_logo.webp" width={100} height={100} alt="Logo" />
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">

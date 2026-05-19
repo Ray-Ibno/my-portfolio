@@ -46,9 +46,12 @@
       as="style"
       onload="this.rel = 'stylesheet'"
     />
-
+    <!-- Preloads -->
     <link rel="preload" href="/src/index.css" as="style" onload="this.rel = 'stylesheet'" />
     <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
+
+    <link rel="preload" href="/assets/spaceship.webp" as="image" fetchpriority="high" />
+    <link rel="preload" href="/assets/spaceshiplight.webp" as="image" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>

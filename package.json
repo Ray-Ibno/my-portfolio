@@ -47,7 +47,8 @@
     "globals": "^17.4.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.57.0",
-    "vite": "^8.0.1"
+    "vite": "^8.0.1",
+    "vite-plugin-css-injected-by-js": "^5.0.1"
   },
   "description": "![Project Preview](./screenshots/preview.png) ![Project Preview Mobile](./screenshots//preview_mobile.png)",
   "main": "eslint.config.js",

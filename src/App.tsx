@@ -1,12 +1,14 @@
 import Navbar from './components/Navbar'
-import About from './sections/About/About'
-import Contact from './sections/Contact/Contact'
 import Footer from './components/Footer'
 import Hero from './sections/Hero/Hero'
-import Projects from './sections/Projects/Projects'
+import { lazy, Suspense } from 'react'
 
 import { Toaster } from './components/ui/sonner'
-import Education from './sections/Education/Education'
+
+const About = lazy(() => import('./sections/About/About'))
+const Projects = lazy(() => import('./sections/Projects/Projects'))
+const Education = lazy(() => import('./sections/Education/Education'))
+const Contact = lazy(() => import('./sections/Contact/Contact'))
 
 function App() {
   return (
@@ -14,10 +16,12 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Education />
-        <Projects />
-        <Contact />
+        <Suspense fallback={<div>Loading...</div>}>
+          <About />
+          <Education />
+          <Projects />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
       <Toaster />

@@ -27,6 +27,10 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (isLoading) return
+
+    const honeypotValue = new FormData(e.target)
+    if (honeypotValue.get('honeypot')) return
 
     try {
       setIsLoading(true)
@@ -93,6 +97,8 @@ const Contact = () => {
             placeholder="What kind of project are you working on? How can I help your team succeed?"
             value={formData.message}
           />
+
+          <input name="honeypot" type="text" className="hidden opacity-0 absolute" />
 
           <button
             type="submit"

@@ -28,7 +28,7 @@ const FormDropdown = ({ setValue, value }: FormDropdownProps) => {
       <label htmlFor="dropdown" className="field-label">
         Country
       </label>
-      <Select id="dropdown" name="dropdown" onValueChange={setValue} value={value}>
+      <Select id="dropdown" name="dropdown" onValueChange={setValue} value={value} required>
         <SelectTrigger className="w-full mt-2">
           <SelectValue />
         </SelectTrigger>

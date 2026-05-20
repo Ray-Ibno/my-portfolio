@@ -28,3 +28,4 @@
 - meta tags for social previews
 - Use inView from react-intersection-observer package to only render the map component when in view which significantly improves the site's performance
 - downloading fonts is better than importing it with a url in terms of performance
+- How to set up CSP in a static React+Vite website

@@ -3,7 +3,7 @@ import type { FormInputProps } from '../../../types'
 const FormInput = ({ onChange, label, type, placeholder, value }: FormInputProps) => {
   return (
     <div className="mb-5">
-      <label htmlFor="name" className="field-label">
+      <label htmlFor={label.toLocaleLowerCase().replaceAll(' ', '')} className="field-label">
         {label}
       </label>
       {type === 'text' || type === 'email' ? (
